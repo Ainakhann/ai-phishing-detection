@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Based Phishing Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Based Phishing Detection</h1>
+        <p>Enter URL or Email content to detect phishing.</p>
+
+        <textarea id="inputText" placeholder="Paste URL or email content here..."></textarea>
+
+        <button onclick="checkPhishing()">Check</button>
+
+        <div id="result" class="result">
+            Result will appear here
+        </div>
+    </div>
+
+    <script>
+        function checkPhishing() {
+            var text = document.getElementById("inputText").value;
+            var result = document.getElementById("result");
+
+            if (text.trim() === "") {
+                result.innerText = "Please enter some text!";
+                result.className = "result phishing";
+            } else if (text.includes("http")) {
+                result.innerText = "⚠️ Phishing Detected (Demo)";
+                result.className = "result phishing";
+            } else {
+                result.innerText = "✅ Safe Content (Demo)";
+                result.className = "result safe";
+            }
+        }
+    </script>
+
+</body>
+</html>
